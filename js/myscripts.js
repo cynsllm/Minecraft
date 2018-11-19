@@ -9,13 +9,18 @@ for (var i = 0; i < 10; i++) {
     }
 }
 
-function () {
+function layout() {
     for (var i = 0; i < 10; i++) {
-        for (var j = 0; j < 6; j++{
+        for (var j = 0; j < 6; j++) {
             if (array[j][j] === "sky") {
                 $('#container').append('<div class="sky"></div>');
             }
-
+            if (array[j][j] === "dirt") {
+                $('#container').append('<div class="dirt"></div>')
+            }
+            if (array[j][j] === "sky") {
+                $('#container').append('<div class="sky"></div>');
+            }
         }
     }
-}
+};
