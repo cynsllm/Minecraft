@@ -19,3 +19,15 @@ function () {
         }
     }
 }
+
+// Implamentation of the Tools
+var tools = ["axe", "pickaxe", "shovel"];
+var toolColumn = $("<section/>");
+toolColumn.attr("id", "toolColumn");
+for (var i = 0; i < tools.length; i++) {
+    var tool = $("<button/>");
+    tool.addClass("tool");
+    toolColumn.append(tool);
+
+}
+$("body").append(toolColumn);
