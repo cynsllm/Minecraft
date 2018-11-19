@@ -13,33 +13,34 @@
 }
 
 .dirt{
-    background-image: url("paper.gif");
+    background-image: url("./img/dirt.png");
 }
 
 .grass{
-    background-image: url("paper.gif");
+    background-image: url("./img/grass.png");
 }
 
 .leaf{
-    background-image: url("paper.gif");
+    background-image: url("./img/leaf.png");
+    background-color: rgb(102, 168, 209);
 }
 
 .tree{
-    background-image: url("paper.gif");
+    background-image: url("./img/tree.png");
 }
 
 .rock{
-    background-image: url("paper.gif");
+    background-image: url("./img/rock.png");
 }
 
 .axe{
-    background-image: url("paper.gif");
+    background-image: url("./img/axe.png");
 }
 
 .pickaxe{
-    background-image: url("paper.gif");
+    background-image: url("./img/pickaxe.png");
 }
 
 .shovel{
-    background-image: url("paper.gif");
+    background-image: url("./img/shovel.png");
 }
