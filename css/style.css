@@ -1,0 +1,45 @@
+.tile{
+    width: 1%;
+    height: 1%;
+    margin: 0;
+}
+
+.sky{
+    background-color: rgb(102, 168, 209);
+}
+
+.cloud{
+    background-color: white;
+}
+
+.dirt{
+    background-image: url("paper.gif");
+}
+
+.grass{
+    background-image: url("paper.gif");
+}
+
+.leaf{
+    background-image: url("paper.gif");
+}
+
+.tree{
+    background-image: url("paper.gif");
+}
+
+.rock{
+    background-image: url("paper.gif");
+}
+
+.axe{
+    background-image: url("paper.gif");
+}
+
+.pickaxe{
+    background-image: url("paper.gif");
+}
+
+.shovel{
+    background-image: url("paper.gif");
+}
