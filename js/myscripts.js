@@ -8,3 +8,7 @@ for(var i=0; i<10; i++) {
         matrix[i][j] = "dirt";
     }
 }
+
+if (array[j][j] === "sky") {
+    $('#container').append('<div class="sky"></div>');
+} 
