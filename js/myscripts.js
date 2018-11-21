@@ -66,6 +66,7 @@ axeTool.on("click", function () {
         console.log(counter);
         $(this).removeClass("wood");
         $(this).addClass("sky");
+        $("#inventory").removeClass(); 
         $("#inventory").addClass("wood");
         $("#inventory").on("click", function () {
             console.log("inventory");
@@ -80,16 +81,41 @@ axeTool.on("click", function () {
             })
         })
     })
+    $(".leaf").on("click", function () {
+        counter = counter + 1;
+        console.log(counter);
+        $(this).removeClass("leaf");
+        $(this).addClass("sky");
+        $("#inventory").removeClass(); 
+        $("#inventory").addClass("leaf");
+        $("#inventory").on("click", function () {
+            $(".tile").on("click", function () {
+                $(this).removeClass("sky dirt rock grass wood");
+                $(this).addClass("leaf");
+                if (counter = 1) { //disable the inventory
+                    $("#inventory").off();
+                    $(".tile").off();
+                    $("#inventory").removeClass("leaf");
+                }
+            })
+        })
+    })
+    $(".dirt, .rock, .grass").mousedown(function(){
+        $(".axe").css("background-color", "red");
+    })
+    $(".dirt, .rock, .grass").mouseup(function(){
+        $(".axe").css("background-color", "white");
+    })
 });
 
 pickaxeTool.on("click", function () {
-    console.log("pickaxe");
     var counter = 0;
     $(".rock").on("click", function () {
         counter = counter + 1;
         console.log(counter);
         $(this).removeClass("rock");
         $(this).addClass("sky");
+        $("#inventory").removeClass(); 
         $("#inventory").addClass("rock");
         $("#inventory").on("click", function () {
             $(".tile").on("click", function () {
@@ -103,18 +129,23 @@ pickaxeTool.on("click", function () {
             })
         })
     })
+    $(".dirt, .wood, .grass, .leaf").mousedown(function(){
+        $(".pickaxe").css("background-color", "red");
+    })
+    $(".dirt, .wood, .grass, .leaf").mouseup(function(){
+        $(".pickaxe").css("background-color", "white");
+    })
 })
 shovelTool.on("click", function () {
-    console.log("shovel");
     var counter = 0;
     $(".dirt").on("click", function () {
         counter = counter + 1;
         console.log(counter);
         $(this).removeClass("dirt");
         $(this).addClass("sky");
+        $("#inventory").removeClass(); 
         $("#inventory").addClass("dirt");
         $("#inventory").on("click", function () {
-            console.log("inventory");
             $(".tile").on("click", function () {
                 $(this).removeClass("sky rock grass wood leaf");
                 $(this).addClass("dirt");
@@ -125,6 +156,30 @@ shovelTool.on("click", function () {
                 }
             })
         })
+    })
+    $(".grass").on("click", function () {
+        counter = counter + 1;
+        console.log(counter);
+        $(this).removeClass("grass");
+        $(this).addClass("sky");
+        $("#inventory").addClass("grass");
+        $("#inventory").on("click", function () {
+            $(".tile").on("click", function () {
+                $(this).removeClass("sky rock dirt wood leaf");
+                $(this).addClass("grass");
+                if (counter = 1) { //disable the inventory
+                    $("#inventory").off();
+                    $(".tile").off();
+                    $("#inventory").removeClass("grass");
+                }
+            })
+        })
+    })
+    $(".wood, .rock, .leaf").mousedown(function(){
+        $(".shovel").css("background-color", "red");
+    })
+    $(".wood, .rock, .leaf").mouseup(function(){
+        $(".shovel").css("background-color", "white");
     })
 })
 
