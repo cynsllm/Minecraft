@@ -1,3 +1,8 @@
+$(document).ready(function(){
+    axe();
+    pickaxe();
+    shovel(); 
+});
 
 //matrix
 var matrix = [
@@ -58,6 +63,7 @@ pickaxeTool.addClass("pickaxe");
 shovelTool.addClass("shovel");
 
 //axeTool function
+var axe = function(){
 axeTool.on("click", function () { //quand je clique sur l'axetool
     console.log("axe");
     var counter = 0;
@@ -108,7 +114,9 @@ axeTool.on("click", function () { //quand je clique sur l'axetool
     })
     
 });
+}
 
+var pickaxe = function(){
 pickaxeTool.on("click", function () {
     var counter = 0;
     $(".rock").on("click", function () {
@@ -137,6 +145,9 @@ pickaxeTool.on("click", function () {
         $(".pickaxe").css("background-color", "black");
     })
 })
+}
+
+var shovel = function(){
 shovelTool.on("click", function () {
     var counter = 0;
     $(".dirt").on("click", function () {
@@ -184,5 +195,6 @@ shovelTool.on("click", function () {
         $(".shovel").css("background-color", "black");
     })
 })
+}
 
 
