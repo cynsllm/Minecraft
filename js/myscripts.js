@@ -58,30 +58,30 @@ pickaxeTool.addClass("pickaxe");
 shovelTool.addClass("shovel");
 
 //axeTool function
-axeTool.on("click", function () {
+axeTool.on("click", function () { //quand je clique sur l'axetool
     console.log("axe");
     var counter = 0;
-    $(".wood").on("click", function () {
+    $(".wood").on("click", function () { //je peux cliquer sur du bois
         counter = counter + 1;
         console.log(counter);
-        $(this).removeClass("wood");
-        $(this).addClass("sky");
+        $(this).removeClass("wood"); //quand je clique sur le bois, la classe bois part
+        $(this).addClass("sky"); //et s'affiche du ciel à la place 
         $("#inventory").removeClass(); 
         $("#inventory").addClass("wood");
         $("#inventory").on("click", function () {
             console.log("inventory");
-            $(".tile").on("click", function () {
-                $(this).removeClass("sky dirt rock grass leaf");
-                $(this).addClass("wood");
+            $(".sky.tile").on("click", function () {
+                $(this).removeClass("sky");
+                $(this).addClass($("#inventory").attr("class"));
                 if (counter = 1) { //disable the inventory
                     $("#inventory").off();
                     $(".tile").off();
-                    $("#inventory").removeClass("wood");
+                    $("#inventory").removeClass();
                 }
             })
         })
     })
-    $(".leaf").on("click", function () {
+    $(".leaf").on("click", function () { //je peux cliquer sur un arbre
         counter = counter + 1;
         console.log(counter);
         $(this).removeClass("leaf");
@@ -89,13 +89,13 @@ axeTool.on("click", function () {
         $("#inventory").removeClass(); 
         $("#inventory").addClass("leaf");
         $("#inventory").on("click", function () {
-            $(".tile").on("click", function () {
-                $(this).removeClass("sky dirt rock grass wood");
-                $(this).addClass("leaf");
+            $(".sky.tile").on("click", function () {
+                $(this).removeClass("sky");
+                $(this).addClass($("#inventory").attr("class"));
                 if (counter = 1) { //disable the inventory
                     $("#inventory").off();
                     $(".tile").off();
-                    $("#inventory").removeClass("leaf");
+                    $("#inventory").removeClass();
                 }
             })
         })
@@ -104,8 +104,9 @@ axeTool.on("click", function () {
         $(".axe").css("background-color", "red");
     })
     $(".dirt, .rock, .grass").mouseup(function(){
-        $(".axe").css("background-color", "white");
+        $(".axe").css("background-color", "black");
     })
+    
 });
 
 pickaxeTool.on("click", function () {
@@ -118,13 +119,13 @@ pickaxeTool.on("click", function () {
         $("#inventory").removeClass(); 
         $("#inventory").addClass("rock");
         $("#inventory").on("click", function () {
-            $(".tile").on("click", function () {
-                $(this).removeClass("sky dirt grass wood leaf");
-                $(this).addClass("rock");
+            $(".sky.tile").on("click", function () {
+                $(this).removeClass("sky");
+                $(this).addClass($("#inventory").attr("class"));
                 if (counter = 1) { //disable the inventory
                     $("#inventory").off();
                     $(".tile").off();
-                    $("#inventory").removeClass("rock");
+                    $("#inventory").removeClass();
                 }
             })
         })
@@ -133,7 +134,7 @@ pickaxeTool.on("click", function () {
         $(".pickaxe").css("background-color", "red");
     })
     $(".dirt, .wood, .grass, .leaf").mouseup(function(){
-        $(".pickaxe").css("background-color", "white");
+        $(".pickaxe").css("background-color", "black");
     })
 })
 shovelTool.on("click", function () {
@@ -146,13 +147,13 @@ shovelTool.on("click", function () {
         $("#inventory").removeClass(); 
         $("#inventory").addClass("dirt");
         $("#inventory").on("click", function () {
-            $(".tile").on("click", function () {
-                $(this).removeClass("sky rock grass wood leaf");
-                $(this).addClass("dirt");
+            $(".sky.tile").on("click", function () {
+                $(this).removeClass("sky");
+                $(this).addClass($("#inventory").attr("class"));
                 if (counter = 1) { //disable the inventory
                     $("#inventory").off();
                     $(".tile").off();
-                    $("#inventory").removeClass("dirt");
+                    $("#inventory").removeClass();
                 }
             })
         })
@@ -162,15 +163,16 @@ shovelTool.on("click", function () {
         console.log(counter);
         $(this).removeClass("grass");
         $(this).addClass("sky");
+        $("#inventory").removeClass(); 
         $("#inventory").addClass("grass");
         $("#inventory").on("click", function () {
-            $(".tile").on("click", function () {
-                $(this).removeClass("sky rock dirt wood leaf");
-                $(this).addClass("grass");
+            $(".sky.tile").on("click", function () {
+                $(this).removeClass("sky");
+                $(this).addClass($("#inventory").attr("class"));
                 if (counter = 1) { //disable the inventory
                     $("#inventory").off();
                     $(".tile").off();
-                    $("#inventory").removeClass("grass");
+                    $("#inventory").removeClass();
                 }
             })
         })
@@ -179,9 +181,8 @@ shovelTool.on("click", function () {
         $(".shovel").css("background-color", "red");
     })
     $(".wood, .rock, .leaf").mouseup(function(){
-        $(".shovel").css("background-color", "white");
+        $(".shovel").css("background-color", "black");
     })
 })
-
 
 
