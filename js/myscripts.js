@@ -1,3 +1,4 @@
+
 //matrix
 var matrix = [
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
@@ -21,19 +22,6 @@ var matrix = [
     ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt'],
     ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt'],
 ];
-
-// var x = 20;
-// var y = 20;
-
-// matrix = function(x,y) {
-//     var arr = [] ;
-//     for (var i=0; i<x; i++) {
-//         arr[i]= []; 
-//         for(var j=0; j<y; j++){
-//             arr[i][j]="";
-//         }
-//     }
-// }
 
 //display the matrix thanks to class
 var map = $("#game-map");
@@ -194,3 +182,6 @@ shovelTool.on("click", function () {
         $(".shovel").css("background-color", "white");
     })
 })
+
+
+
