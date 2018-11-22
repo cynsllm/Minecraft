@@ -50,7 +50,7 @@ $(".navbar").append(toolColumn);
 //inventory generation
 var inventory = $("<div/>");
 inventory.attr("id", "inventory");
-inventory.addClass("tool")
+
 toolColumn.append(inventory);
 
 
