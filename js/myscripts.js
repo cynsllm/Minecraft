@@ -5,6 +5,9 @@ $(document).ready(function(){
 });
 
 //matrix
+
+game = {}
+
 var matrix = [
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
@@ -44,7 +47,7 @@ var toolColumn = $("<section/>");
 toolColumn.attr("id", "toolColumn");
 for (var i = 0; i < tools.length; i++) {
     var tool = $("<button/>");
-    tool.addClass("tool");
+    tool.addClass("tool blackbg");
     toolColumn.append(tool);
 }
 $(".navbar").append(toolColumn);
@@ -52,7 +55,8 @@ $(".navbar").append(toolColumn);
 //inventory generation
 var inventory = $("<div/>");
 inventory.attr("id", "inventory");
-$(".navbar").append(inventory);
+inventory.addClass("tool")
+toolColumn.append(inventory);
 
 
 var axeTool = $("button:nth-child(1)").addClass("axe");
