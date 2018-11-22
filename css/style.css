@@ -1,9 +1,20 @@
-.tile{
-    width: 1%;
-    height: 1%;
-    margin: 0;
+body {
+    font-size: 0px;
+}
+.container {
+    display: flex;
+    justify-content: center;
 }
 
+#game-map{
+    width: 600px;
+}
+.tile {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+}
 .sky{
     background-color: rgb(102, 168, 209);
 }
@@ -13,50 +24,76 @@
 }
 
 .dirt{
-    background-image: url("./img/dirt.png");
+    background-image: url("../img/dirt.png");
 }
 
 .grass{
-    background-image: url("./img/grass.png");
+    background-image: url("../img/grass.png");
 }
 
 .leaf{
-    background-image: url("./img/leaf.png");
+    background-image: url("../img/leaf.png");
     background-color: rgb(102, 168, 209);
 }
 
-.tree{
-    background-image: url("./img/tree.png");
+.wood{
+    background-image: url("../img/tree.png");
 }
 
 .rock{
-    background-image: url("./img/rock.png");
+    background-image: url("../img/rock.png");
+}
+#toolColumn {
+    display: flex;
+    flex-direction: column;
+}
+.tool {
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+.axe{
+    background-image: url("../img/axe.png");
 }
 
-#toolColumn{
-    width: 20%;
-    height: 100%;
-    padding: 0;
-    margin: 10vh;
-    display: block;
+.pickaxe{
+    background-image: url("../img/pickaxe.png");
 }
 
-button{
-    height: 20vh;
-    width: 20vh;
+.shovel{
+    background-image: url("../img/shovel.png");
+}
+#inventory {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+
+/* .start{
+    font-size: 0px;
+    background-image: url("../img/start.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    z-index: 12345;
+    width: 100vh;
+    margin: 0;
+    padding: 0; 
+    height: 100vh; 
     background-position: center;
-  background-repeat: no-repeat; 
-  background-size: cover; 
 }
 
-button.axe{
-    background-image: url("./img/axe.png");
+.startButton{
+
 }
 
-button.pickaxe{
-    background-image: url("./img/pickaxe.png");
-}
-
-button.shovel{
-    background-image: url("./img/shovel.png");
-}
+.container {
+    font-size: 0px;
+    background-image: url("../img/back.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+} */
