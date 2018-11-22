@@ -1,5 +1,8 @@
 
 //matrix
+
+game = {}
+
 var matrix = [
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
@@ -39,8 +42,7 @@ var toolColumn = $("<section/>");
 toolColumn.attr("id", "toolColumn");
 for (var i = 0; i < tools.length; i++) {
     var tool = $("<button/>");
-    tool.addClass(tools[i]);
-    tool.addClass("tool");
+    tool.addClass("tool blackbg");
     toolColumn.append(tool);
 }
 $(".navbar").append(toolColumn);
@@ -48,7 +50,8 @@ $(".navbar").append(toolColumn);
 //inventory generation
 var inventory = $("<div/>");
 inventory.attr("id", "inventory");
-$(".navbar").append(inventory);
+inventory.addClass("tool")
+toolColumn.append(inventory);
 
 
 var axeTool = $("button:nth-child(1)").addClass("axe");
@@ -193,12 +196,8 @@ shovelTool.on("click", function () {
     })
 })
 
-//$(".container").css("display", "none");
-//
-// $("#startButton").click(function(){
-//     $(".start").css("display", "none");
 
-//     $(".container").css("display", "flex");
-//     $(".container").css("z-index", "87263468");
-
-// })
+$(".welcome button").click(function(){
+    $(".welcome").css("display", "none");
+    $(".container").css("display", "flex");
+})
