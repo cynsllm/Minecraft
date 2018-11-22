@@ -1,5 +1,8 @@
 
 //matrix
+
+game = {}
+
 var matrix = [
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
@@ -47,7 +50,8 @@ $(".navbar").append(toolColumn);
 //inventory generation
 var inventory = $("<div/>");
 inventory.attr("id", "inventory");
-$(".navbar").append(inventory);
+inventory.addClass("tool")
+toolColumn.append(inventory);
 
 
 var axeTool = $("button:nth-child(1)").addClass("axe");
