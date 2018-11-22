@@ -31,9 +31,12 @@ var toolColumn = $("<section/>");
 toolColumn.attr("id", "toolColumn");
 for (var i = 0; i < tools.length; i++) {
     var tool = $("<button/>");
+    tool.addClass(tools[i]);
     tool.addClass("tool");
     toolColumn.append(tool);
-
+    // $('button.axe').on('click', 'yourSelector', function () {
+    //     //do something
+    // });
 }
 $("body").append(toolColumn);
-};
+
