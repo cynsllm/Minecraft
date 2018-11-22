@@ -1,6 +1,7 @@
 body {
     font-size: 0px;
 }
+
 .container {
     display: flex;
     justify-content: center;
@@ -11,13 +12,15 @@ body {
 #game-map{
     width: 60%;
 }
+
 .tile {
     display: inline-block;
     width: 5%;
     height: 5%;
     background-size: cover;
 }
-.sky{
+
+.sky {
     background-color: rgb(102, 168, 209);
 }
 
@@ -25,7 +28,7 @@ body {
     background-color: white;
 }
 
-.dirt{
+.dirt {
     background-image: url("../img/dirt.png");
 }
 
@@ -45,17 +48,20 @@ body {
 .rock{
     background-image: url("../img/rock.png");
 }
+
 #toolColumn {
     display: flex;
     flex-direction: column;
     align-items: center;  
 }
+
 .tool {
     background-size: cover;
     width: 50px;
     height: 50px;
     margin-top:30px;
 }
+
 .axe{
     background-image: url("../img/axe.png");
 }
@@ -67,6 +73,7 @@ body {
 .shovel{
     background-image: url("../img/shovel.png");
 }
+
 #inventory {
     width: 30px;
     height: 30px;
@@ -77,9 +84,11 @@ body {
 .blackbg {
     background-color:black;
 }
+
 .navbar {
     width:10%;
 }
+
 @media screen and (max-width: 800px) {
     .container {
         width: 700px;
@@ -89,6 +98,7 @@ body {
         width:40px;
         height:40px;
     }
+}
 
 @media screen and (max-width: 550px) {
     .container {
@@ -99,3 +109,5 @@ body {
         width:30px;
         height:30px;
     }
+} 
+
