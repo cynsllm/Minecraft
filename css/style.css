@@ -102,14 +102,16 @@ body {
     border: 1px solid white;
     margin-top:30px;
 }
-
-
 .blackbg {
     background-color:black;
 }
 .navbar {
     width:10%;
 }
+.grass-cursor {
+    cursor: url('../img/grass.png');
+}
+
 @media screen and (max-width: 800px) {
     .container {
         width: 700px;
