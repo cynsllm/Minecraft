@@ -4,7 +4,7 @@ body {
 .container {
     display: none;
     justify-content: center;
-    width:1000px; 
+    width:1000px ; 
     height: 600px;
 }
 
@@ -22,15 +22,20 @@ body {
 
 .welcome > div {
     position: absolute;
-    left: 48vw;
+    left: 42.5vw;
     top: 50vh;
 }
 
-#startBut{
+.welcome button{
     font-size: 25px;
     border-radius: 4px;
     transition-duration: 0.4s;
-    background-color: green;
+    background-color: rgb(0, 102, 0);
+    margin: 5px;
+}
+
+#demoBut:hover{
+    color: white;    
 }
 
 #startBut:hover{

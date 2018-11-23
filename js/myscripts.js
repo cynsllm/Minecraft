@@ -170,5 +170,7 @@ var clickedTile = function () {
     })
 }
 
-
-
+$(".welcome #startBut").click(function () {
+    $(".welcome").css("display", "none");
+    $(".container").css("display", "flex");
+})
