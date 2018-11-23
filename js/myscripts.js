@@ -63,6 +63,12 @@ var shovelTool = $("button:nth-child(3)").addClass("shovel");
 var tool = "";
 var toolSelection = function () {
     $(".tool").on("click", function () {
+        $(".tile").mouseover(function () {
+            $(this).css("opacity", "0.5");
+        });
+        $(".tile").mouseout(function () {
+            $(this).css("opacity", "1");
+        });
         if ($(this).hasClass("axe")) {
             tool = "axe";
         }
