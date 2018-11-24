@@ -174,3 +174,18 @@ $(".welcome #startBut").click(function () {
     $(".welcome").css("display", "none");
     $(".container").css("display", "flex");
 })
+
+$(".welcome #demoBut").click(function () {
+    $("#instructionDemo").css("display", "block");
+    $(".close").click(function () {
+        $("#instructionDemo").css("display", "none");
+        
+    })
+})
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
