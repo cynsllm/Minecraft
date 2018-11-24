@@ -3,10 +3,44 @@ body {
 }
 
 .container {
-    display: flex;
+    display: none;
     justify-content: center;
-    width:1000px; 
+    width:1000px ; 
     height: 600px;
+}
+
+.welcome{
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/start.jpg");
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.welcome > div {
+    position: absolute;
+    left: 42.5vw;
+    top: 50vh;
+}
+
+.welcome button{
+    font-size: 25px;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+    background-color: rgb(0, 102, 0);
+    margin: 5px;
+}
+
+#demoBut:hover{
+    color: white;    
+}
+
+#startBut:hover{
+    color: white;
 }
 
 #game-map{
@@ -80,13 +114,15 @@ body {
     border: 1px solid white;
     margin-top:30px;
 }
-
 .blackbg {
     background-color:black;
 }
 
 .navbar {
     width:10%;
+}
+.grass-cursor {
+    cursor: url('../img/grass.png');
 }
 
 @media screen and (max-width: 800px) {
@@ -99,7 +135,6 @@ body {
         height:40px;
     }
 }
-
 @media screen and (max-width: 550px) {
     .container {
         width: 450px;
@@ -109,5 +144,4 @@ body {
         width:30px;
         height:30px;
     }
-} 
-
+}

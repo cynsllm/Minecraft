@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    axe();
-    pickaxe();
-    shovel();
+    toolSelection();
+    clickedTile();
+    currentInventory();
 });
 
-//DISPLAY THE MATRIX 
+//matrix
 var matrix = [
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
     ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
@@ -44,7 +44,7 @@ var toolColumn = $("<section/>");
 toolColumn.attr("id", "toolColumn");
 for (var i = 0; i < tools.length; i++) {
     var tool = $("<button/>");
-    tool.addClass("tool blackbg");
+    tool.addClass("tool");
     toolColumn.append(tool);
 }
 $(".navbar").append(toolColumn);
@@ -52,151 +52,126 @@ $(".navbar").append(toolColumn);
 //GENERATE INVENTORY
 var inventory = $("<div/>");
 inventory.attr("id", "inventory");
-toolColumn.append(inventory);
+$(".navbar").append(inventory);
 
-// C QUOI CA ? 
+//var definitions and class assignments
 var axeTool = $("button:nth-child(1)").addClass("axe");
 var pickaxeTool = $("button:nth-child(2)").addClass("pickaxe");
 var shovelTool = $("button:nth-child(3)").addClass("shovel");
-axeTool.addClass("axe");
-pickaxeTool.addClass("pickaxe");
-shovelTool.addClass("shovel");
 
-//AXE FUNCTION
-var axe = function () {
-    axeTool.on("click", function () { //quand je clique sur l'axetool
-        console.log("axe");
-        var counter = 0;
-        $(".wood").on("click", function () { //je peux cliquer sur du bois
-            counter = counter + 1;
-            console.log(counter);
-            $(this).removeClass("wood"); //quand je clique sur le bois, la classe bois part
-            $(this).addClass("sky"); //et s'affiche du ciel à la place 
-            $("#inventory").removeClass();
-            $("#inventory").addClass("wood");
-            $("#inventory").on("click", function () {
-                console.log("inventory");
-                $(".sky.tile").on("click", function () {
-                    $(this).removeClass("sky");
-                    $(this).addClass($("#inventory").attr("class"));
-                    if (counter = 1) { //disable the inventory
-                        $("#inventory").off();
-                        $(".tile").off();
-                        $("#inventory").removeClass();
-                    }
-                })
-            })
-        })
-        $(".leaf").on("click", function () { //je peux cliquer sur un arbre
-            counter = counter + 1;
-            console.log(counter);
-            $(this).removeClass("leaf");
-            $(this).addClass("sky");
-            $("#inventory").removeClass();
-            $("#inventory").addClass("leaf");
-            $("#inventory").on("click", function () {
-                $(".sky.tile").on("click", function () {
-                    $(this).removeClass("sky");
-                    $(this).addClass($("#inventory").attr("class"));
-                    if (counter = 1) { //disable the inventory
-                        $("#inventory").off();
-                        $(".tile").off();
-                        $("#inventory").removeClass();
-                    }
-                })
-            })
-        })
-        $(".dirt, .rock, .grass").mousedown(function () {
-            $(".axe").css("background-color", "red");
-        })
-        $(".dirt, .rock, .grass").mouseup(function () {
-            $(".axe").css("background-color", "black");
-        })
-
+//function that defines the class of the selected tool
+var tool = "";
+var toolSelection = function () {
+    $(".tool").on("click", function () {
+        $(".tile").mouseover(function () {
+            $(this).css("opacity", "0.5");
+        });
+        $(".tile").mouseout(function () {
+            $(this).css("opacity", "1");
+        });
+        if ($(this).hasClass("axe")) {
+            tool = "axe";
+        }
+        else if ($(this).hasClass("pickaxe")) {
+            tool = "pickaxe";
+        }
+        else {
+            tool = "shovel";
+        }
     });
 }
 
-//PICKAXE FUNCTION
-var pickaxe = function () {
-    pickaxeTool.on("click", function () {
-        var counter = 0;
-        $(".rock").on("click", function () {
-            counter = counter + 1;
-            console.log(counter);
-            $(this).removeClass("rock");
-            $(this).addClass("sky");
+//function that defines the class of the inventory 
+var inventory = "";
+var currentInventory = function () {
+    $("#inventory").on("click", function () {
+        if ($(this).hasClass("grass")) {
+            inventory = "grass";
+        }
+        else if ($(this).hasClass("dirt")) {
+            inventory = "dirt";
+        }
+        else if ($(this).hasClass("rock")) {
+            inventory = "rock";
+        }
+        else if ($(this).hasClass("leaf")) {
+            inventory = "leaf";
+        }
+        else if ($(this).hasClass("wood")) {
+            inventory = "wood";
+        }
+    })
+}
+
+//function that defines an action according to the selected tool and the selected tile
+var clickedTile = function () {
+    $(".tile").on("click", function () {
+        if ($(this).hasClass("rock") && tool === "pickaxe") {
+            $(this).removeClass();
+            $(this).addClass("sky tile");
             $("#inventory").removeClass();
             $("#inventory").addClass("rock");
-            $("#inventory").on("click", function () {
-                $(".sky.tile").on("click", function () {
-                    $(this).removeClass("sky");
-                    $(this).addClass($("#inventory").attr("class"));
-                    if (counter = 1) { //disable the inventory
-                        $("#inventory").off();
-                        $(".tile").off();
-                        $("#inventory").removeClass();
-                    }
-                })
-            })
-        })
-        $(".dirt, .wood, .grass, .leaf").mousedown(function () {
-            $(".pickaxe").css("background-color", "red");
-        })
-        $(".dirt, .wood, .grass, .leaf").mouseup(function () {
-            $(".pickaxe").css("background-color", "black");
-        })
-    })
-}
-
-//SHOVEL FUNCTION
-var shovel = function () {
-    shovelTool.on("click", function () {
-        var counter = 0;
-        $(".dirt").on("click", function () {
-            counter = counter + 1;
-            console.log(counter);
-            $(this).removeClass("dirt");
-            $(this).addClass("sky");
-            $("#inventory").removeClass();
-            $("#inventory").addClass("dirt");
-            $("#inventory").on("click", function () {
-                $(".sky.tile").on("click", function () {
-                    $(this).removeClass("sky");
-                    $(this).addClass($("#inventory").attr("class"));
-                    if (counter = 1) { //disable the inventory
-                        $("#inventory").off();
-                        $(".tile").off();
-                        $("#inventory").removeClass();
-                    }
-                })
-            })
-        })
-        $(".grass").on("click", function () {
-            counter = counter + 1;
-            console.log(counter);
-            $(this).removeClass("grass");
-            $(this).addClass("sky");
+        }
+        else if ($(this).hasClass("grass") && tool === "shovel") {
+            $(this).removeClass();
+            $(this).addClass("sky tile");
             $("#inventory").removeClass();
             $("#inventory").addClass("grass");
-            $("#inventory").on("click", function () {
-                $(".sky.tile").on("click", function () {
-                    $(this).removeClass("sky");
-                    $(this).addClass($("#inventory").attr("class"));
-                    if (counter = 1) { //disable the inventory
-                        $("#inventory").off();
-                        $(".tile").off();
-                        $("#inventory").removeClass();
-                    }
-                })
-            })
-        })
-        $(".wood, .rock, .leaf").mousedown(function () {
-            $(".shovel").css("background-color", "red");
-        })
-        $(".wood, .rock, .leaf").mouseup(function () {
-            $(".shovel").css("background-color", "black");
-        })
+        }
+        else if ($(this).hasClass("dirt") && tool === "shovel") {
+            $(this).removeClass();
+            $(this).addClass("sky tile");
+            $("#inventory").removeClass();
+            $("#inventory").addClass("dirt");
+        }
+        else if ($(this).hasClass("leaf") && tool === "axe") {
+            $(this).removeClass();
+            $(this).addClass("sky tile");
+            $("#inventory").removeClass();
+            $("#inventory").addClass("leaf");
+        }
+        else if ($(this).hasClass("wood") && tool === "axe") {
+            $(this).removeClass();
+            $(this).addClass("sky tile");
+            $("#inventory").removeClass();
+            $("#inventory").addClass("wood");
+        }
+        else if ($(this).hasClass("sky") && inventory === "grass") {
+            $(this).removeClass();
+            $(this).addClass("grass tile");
+            inventory = "";
+            $("#inventory").removeClass()
+        }
+        else if ($(this).hasClass("sky") && inventory === "dirt") {
+            $(this).removeClass();
+            $(this).addClass("dirt tile");
+            inventory = "";
+            $("#inventory").removeClass()
+
+        }
+        else if ($(this).hasClass("sky") && inventory === "rock") {
+            $(this).removeClass();
+            $(this).addClass("rock tile");
+            inventory = "";
+            $("#inventory").removeClass()
+        }
+        else if ($(this).hasClass("sky") && inventory === "leaf") {
+            $(this).removeClass();
+            $(this).addClass("leaf tile");
+            inventory = "";
+            $("#inventory").removeClass()
+        }
+        else if ($(this).hasClass("sky") && inventory === "wood") {
+            $(this).removeClass();
+            $(this).addClass("wood tile");
+            inventory = "";
+            $("#inventory").removeClass()
+        }
     })
 }
 
-
+$(".welcome #startBut").click(function () {
+    $(".welcome").css("display", "none");
+    $(".container").css("display", "flex");
+    
+})
