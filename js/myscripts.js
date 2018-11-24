@@ -52,7 +52,7 @@ $(".navbar").append(toolColumn);
 //GENERATE INVENTORY
 var inventory = $("<div/>");
 inventory.attr("id", "inventory");
-$(".navbar").append(inventory);
+toolColumn.append(inventory);
 
 //var definitions and class assignments
 var axeTool = $("button:nth-child(1)").addClass("axe");
@@ -173,5 +173,19 @@ var clickedTile = function () {
 $(".welcome #startBut").click(function () {
     $(".welcome").css("display", "none");
     $(".container").css("display", "flex");
-    
 })
+
+$(".welcome #demoBut").click(function () {
+    $("#instructionDemo").css("display", "block");
+    $(".close").click(function () {
+        $("#instructionDemo").css("display", "none");
+        
+    })
+})
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
